@@ -1,17 +1,14 @@
-import { useState } from 'react'
-import './App.css'
-import {Footer, Header} from "./components/index.js";
-
+import {Content, Header} from "./components/index.js";
+import {Footer, GameBoard} from "./components/index.js";
+import React from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      {/*<Header></Header>*/}
-      <Footer></Footer>
-
-    </>
+    <Content>
+      <Header />
+      <GameBoard />
+      <Footer />
+    </Content>
   )
 }
 

@@ -1,4 +1,6 @@
-import {Header} from "./header/Header.jsx";
-import {Footer} from "./footer/Footer.jsx";
+import {Header} from "./Header/Header.jsx";
+import {Footer} from "./Footer/Footer.jsx";
+import {Content} from "./Content/Content.jsx";
+import {GameBoard} from "./GameBoard/GameBoard.jsx";
 
-export {Header, Footer}
+export {Header, Footer, Content, GameBoard}
