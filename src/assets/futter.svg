@@ -1,10 +1,9 @@
-<svg width="165" height="69" viewBox="0 0 165 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_55_2)">
-        <path d="M-16 0H5.84105C20.3134 0 34.1564 5.91822 44.1558 16.3806L63.0709 36.1714C73.6712 47.2624 91.3712 47.3032 102.022 36.2611L121.369 16.2046C131.358 5.84933 145.127 0 159.515 0H181V69H-16V0Z" fill="#7A8C65"/>
-    </g>
-    <defs>
-        <clipPath id="clip0_55_2">
-            <rect width="165" height="69" fill="white"/>
-        </clipPath>
-    </defs>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 197 69" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#7A8C65;}
+</style>
+    <path class="st0" d="M175.52,0h-0.36c-14.01,0-27.45,5.57-37.36,15.47l-22.73,22.73c-9.15,9.15-23.99,9.15-33.14,0L59.2,15.47
+	C49.29,5.57,35.85,0,21.84,0h0H0v69h197V0H175.52z"/>
 </svg>

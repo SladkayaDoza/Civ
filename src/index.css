@@ -19,3 +19,9 @@
 
   --color-brand: #9DC08B;
 }
+
+.transparent-img {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
