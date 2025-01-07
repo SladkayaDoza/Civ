@@ -1,96 +1,76 @@
 import React from 'react';
-import { Flame, ShoppingCart, Sun, List, User } from 'lucide-react';
+import arrow from "../../assets/arrow.svg";
 
 export const GameBoard = () => {
+  const edgeColors = {
+    2: 'pink', 3: 'pink', 4: 'pink',
+    10: 'light-green', 15: 'light-green', 20: 'light-green',
+    30: 'blue', 35: 'blue', 40: 'blue',
+    42: 'brown', 43: 'brown', 44: 'brown',
+    26: 'light-red', 31: 'light-red', 36: 'light-red',
+    6: 'green', 11: 'green', 16: 'green',
+    21: 'yellow', 25: 'yellow'
+  };
+
+  const cornerCells = {
+    1: { class: 'jail', icon: '🔒', text: 'JAIL' },
+    5: { class: 'go-to-jail', icon: '👮', text: 'GO TO JAIL' },
+    41: { class: 'parking', icon: '🅿️', text: 'PARKING' },
+    45: { class: 'start', icon: '🏁', text: 'START', svg: arrow}
+  };
+
+  const names = ["BER", "PAR", "LON", "ROM", "MAD", "LIS", "AMS", "WAW",
+    "PRG", "BRU", "VIE", "ATH", "BUD", "OSL", "HEL", "STO",
+    "CPH", "TYO", "SEL"];
+
+  const renderCell = (index) => {
+    const cellNumber = index + 1;
+    const cornerCell = cornerCells[cellNumber];
+
+    if (cornerCell) {
+      return (
+          <div className={`cell corner-cell ${cornerCell.class}`} key={index}>
+              <img src={cornerCell.svg} alt="" width="55"/>
+              <div>{cornerCell.text}</div>
+          </div>
+      );
+    }
+
+      if (!edgeColors[cellNumber]) {
+          return <div className="cell transparent" key={index} />;
+    }
+
+    let positionClass;
+    if (index < 5) positionClass = 'top';
+    else if ((index + 1) % 5 === 0) positionClass = 'right';
+    else if (index >= 40) positionClass = 'bottom';
+    else positionClass = 'left';
+
+    return (
+        <div className="cell" key={index}>
+          <div className={`marker ${edgeColors[cellNumber]} ${positionClass}`}>
+          </div>
+            <div className={`details ${positionClass}`}>
+                <span className="marker-text">{names[index % names.length]}</span>
+                <div className="infoarea">
+                    <div className="info">${cellNumber * 10}</div>
+                    <div className="info bought">0 mints</div>
+                </div>
+            </div>
+        </div>
+    );
+  };
+
+    const cells = Array(45).fill(null).map((_, index) => renderCell(index));
+
   return (
-    <div className="relative w-full h-screen max-w-md mx-auto flex flex-col">
-      <div className="flex-1 relative">
-        {/* Верхняя группа */}
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 flex gap-1">
-          <Cell type="city" variant="vertical" />
-          <Cell type="city" variant="vertical" />
-          <Cell type="city" variant="vertical" />
+      <div className="container">
+        <div className="grid">
+          {cells}
         </div>
+          <div className="geep">
 
-        {/* Левая группа */}
-        <div className="absolute left-2 top-1/2 -translate-y-1/2 flex flex-col gap-1">
-          <Cell type="city" variant="horizontal" status="green" />
-          <Cell type="city" variant="horizontal" status="green" />
-          <Cell type="city" variant="horizontal" status="green" />
-          <Cell type="city" variant="horizontal" status="yellow" />
-          <Cell type="city" variant="horizontal" status="red" />
-          <Cell type="city" variant="horizontal" status="red" />
-          <Cell type="city" variant="horizontal" status="red" />
-        </div>
-
-        {/* Правая группа */}
-        <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col gap-1">
-          <Cell type="city" variant="horizontal" status="green" />
-          <Cell type="city" variant="horizontal" status="green" />
-          <Cell type="city" variant="horizontal" status="green" />
-          <Cell type="city" variant="horizontal" status="yellow" />
-          <Cell type="city" variant="horizontal" status="blue" />
-          <Cell type="city" variant="horizontal" status="blue" />
-          <Cell type="city" variant="horizontal" status="blue" />
-        </div>
-
-        {/* Нижняя группа */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-          <Cell type="city" variant="vertical" />
-          <Cell type="city" variant="vertical" />
-          <Cell type="city" variant="vertical" />
-        </div>
-
-        {/*/!* Центральный счетчик *!/*/}
-        {/*<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">*/}
-        {/*  <div className="bg-green-200 rounded-full p-4 flex items-center gap-2">*/}
-        {/*    <Flame className="text-orange-500" />*/}
-        {/*    <span className="text-lg font-bold">1448.78</span>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+          </div>
       </div>
-    </div>
-  );
-};
-
-const Cell = ({ type, status, variant }) => {
-  const getBackgroundColor = () => {
-    if (status === 'green') return 'bg-green-200';
-    if (status === 'yellow') return 'bg-yellow-200';
-    if (status === 'red') return 'bg-red-200';
-    if (status === 'blue') return 'bg-blue-600';
-    return 'bg-white';
-  };
-
-  // Размеры для вертикальных карточек (3:5)
-  const verticalStyles = {
-    width: '60px',
-    height: '100px'
-  };
-
-  // Размеры для горизонтальных карточек (5:3)
-  const horizontalStyles = {
-    width: '100px',
-    height: '60px'
-  };
-
-  const cardStyle = variant === 'vertical' ? verticalStyles : horizontalStyles;
-
-  return (
-    <div
-      className={`border rounded flex flex-col items-center justify-center ${getBackgroundColor()}`}
-      style={cardStyle}
-    >
-      <span className="text-xs">SITY</span>
-      <span className="text-sm">13.90</span>
-    </div>
-  );
-};
-
-const NavButton = ({ icon }) => {
-  return (
-    <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-      {icon}
-    </button>
   );
 };

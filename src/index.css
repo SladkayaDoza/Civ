@@ -25,3 +25,366 @@
   outline: none;
   box-shadow: none;
 }
+
+.board {
+  aspect-ratio: 6 / 10;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+  grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  gap: 1px;
+  box-sizing: border-box;
+  grid-template-areas:
+        "square-12 square-13 square-14 square-15 square-16"
+        "square-11 center center center square-17"
+        "square-10 center center center square-18"
+        "square-9 center center center square-19"
+        "square-8 center center center square-20"
+        "square-7 center center center square-21"
+        "square-6 center center center square-22"
+        "square-5 center center center square-23"
+        "square-4 square-3 square-2 square-1 square-0";
+}
+
+.square {
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: .38rem;
+  overflow: hidden;
+  --special-square-border-size: .8rem;
+}
+
+.square-0 {
+  grid-area: square-0;
+}
+
+.square-1 {
+  grid-area: square-1;
+}
+
+.square-2 {
+  grid-area: square-2;
+}
+
+.square-3 {
+  grid-area: square-3;
+}
+
+.square-4 {
+  grid-area: square-4;
+}
+
+.square-5 {
+  grid-area: square-5;
+}
+
+.square-6 {
+  grid-area: square-6;
+}
+
+.square-7 {
+  grid-area: square-7;
+}
+
+.square-8 {
+  grid-area: square-8;
+}
+
+.square-9 {
+  grid-area: square-9;
+}
+
+.square-10 {
+  grid-area: square-10;
+}
+
+.square-11 {
+  grid-area: square-11;
+}
+
+.square-12 {
+  grid-area: square-12;
+}
+
+.square-13 {
+  grid-area: square-13;
+}
+
+.square-14 {
+  grid-area: square-14;
+}
+
+.square-15 {
+  grid-area: square-15;
+}
+
+.square-16 {
+  grid-area: square-16;
+}
+
+.square-17 {
+  grid-area: square-17;
+}
+
+.square-18 {
+  grid-area: square-18;
+}
+
+.square-19 {
+  grid-area: square-19;
+}
+
+.square-20 {
+  grid-area: square-20;
+}
+
+.square-21 {
+  grid-area: square-21;
+}
+
+.square-22 {
+  grid-area: square-22;
+}
+
+.square-23 {
+  grid-area: square-23;
+}
+
+.container {
+  max-width: 95vw;
+  max-height: 900px;
+  width: auto !important;
+  height: 100%;
+  /*width: 100%;*/
+  aspect-ratio: 6/10;
+  margin: 0 auto 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+  grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  gap: 3px;
+  padding: 1px;
+  aspect-ratio: 6 / 10;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(8px, 1.8vw, 11px);
+  background-color: #fff;
+  color: #7A8C65;
+  border-radius: min(1vw, 6px);
+  position: relative;
+  padding: 2%;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.corner-cell {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  font-weight: bold;
+}
+
+.corner-cell.start {
+  background-color: #8d938b;
+  color: #EDF1D6;
+}
+.corner-cell.jail {
+  background-color: #8d938b;
+  color: #EDF1D6;
+}
+.corner-cell.parking {
+  background-color: #8d938b;
+  color: #EDF1D6;
+}
+.corner-cell.go-to-jail {
+  background-color: #8d938b;
+  color: #EDF1D6;
+}
+
+.corner-icon {
+  font-size: clamp(12px, 2.5vw, 20px);
+  margin-bottom: 5%;
+}
+
+.transparent { background-color: transparent; }
+
+.marker {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.marker.right {
+  right: 0;
+  width: 15%;
+  height: 100%;
+  border-radius: 0 min(1vw, 6px) min(1vw, 6px) 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.marker.left {
+  left: 0;
+  width: 15%;
+  height: 100%;
+  border-radius: min(1vw, 6px) 0 0 min(1vw, 6px);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.marker-text {
+  font-size: clamp(14px, 1.8vw, 12px);
+}
+
+.marker.left .marker-text {
+  transform: rotate(180deg);
+}
+
+.marker.top {
+  top: 0;
+  height: 15%;
+  width: 100%;
+  border-radius: min(1vw, 6px) min(1vw, 6px) 0 0;
+}
+
+.marker.bottom {
+  bottom: 0;
+  height: 15%;
+  width: 100%;
+  border-radius: 0 0 min(1vw, 6px) min(1vw, 6px);
+}
+
+.bottom .marker-text {
+}
+
+.pink { background-color: #ffc0cb; }
+.light-green { background-color: #90ee90; }
+.blue { background-color: #add8e6; }
+.brown { background-color: #a52a2a; }
+.light-red { background-color: #ff7f7f; }
+.green { background-color: #008000; }
+.yellow { background-color: #ffff00; }
+.gray { background-color: #d3d3d3; }
+
+.info {
+  font-size: clamp(12px, 2vw, 13px);
+  line-height: 1.2;
+}
+
+.bought {
+  font-size: clamp(8px, 1.8vw, 11px);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  z-index: 1;
+  padding: 2%;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.details.top {
+  width: 100%;
+  height: 85%;
+  margin-top: 15%;
+  flex-direction: column;
+}
+.details.bottom {
+  width: 100%;
+  height: 85%;
+  margin-bottom: 15%;
+  flex-direction: column-reverse;
+}
+.details.left {
+  width: 85%;
+  height: 100%;
+  margin-left: 15%;
+  flex-direction: row;
+}
+.details.right {
+  width: 85%;
+  height: 100%;
+  margin-right: 15%;
+  flex-direction: row-reverse;
+}
+
+.details.top > .marker-text {
+}
+.details.bottom > .marker-text {
+}
+.details.left > .marker-text {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.details.right > .marker-text {
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
+.infoarea {
+  display: flex;
+  padding: 3px;
+}
+
+.details.top > .infoarea {
+  flex-direction: column;
+}
+.details.bottom > .infoarea {
+  flex-direction: column;
+}
+.details.left > .infoarea {
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: right;
+  height: 100%;
+}
+.details.right > .infoarea {
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  height: 100%;
+}
+
+
+
+
+.yellow.marker {
+  color: black;
+  text-shadow: none;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    max-width: 95vw;
+    margin: auto auto auto auto;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .container {
+    max-height: 95vh;
+  }
+}
