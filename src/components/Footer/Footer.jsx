@@ -27,10 +27,10 @@ export const Footer = () => {
         {/* Остальные кнопки меню */}
         <div className="h-full px-8 flex justify-between items-center">
           <div className="flex gap-12">
-            <button className="text-white opacity-80 hover:opacity-100 transition-opacity">
+            <button className="text-white opacity-80 hover:opacity-100 transition-opacity z-[1]">
               <ShoppingCart size={28} />
             </button>
-            <button className="text-white opacity-80 hover:opacity-100 transition-opacity">
+            <button className="text-white opacity-80 hover:opacity-100 transition-opacity z-[1]">
               <Sun size={28} />
             </button>
           </div>
@@ -39,10 +39,10 @@ export const Footer = () => {
           <div className="w-20" />
 
           <div className="flex gap-12">
-            <button className="text-white opacity-80 hover:opacity-100 transition-opacity">
+            <button className="text-white opacity-80 hover:opacity-100 transition-opacity z-[1]">
               <List size={28} />
             </button>
-            <button className="text-white opacity-80 hover:opacity-100 transition-opacity">
+            <button className="text-white opacity-80 hover:opacity-100 transition-opacity z-[1]">
               <User size={28} />
             </button>
           </div>

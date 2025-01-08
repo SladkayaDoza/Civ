@@ -38,7 +38,7 @@ export const GameBoard = () => {
         };
         return (
             <div className={`cell corner-cell ${cornerCell.class} ${getClass()}`} key={index}>
-                <img src={cornerCell.svg} alt="" width="55"/>
+                <img src={cornerCell.svg} alt="" className="box-border w-[60%]" />
                 <div>{cornerCell.text}</div>
             </div>
         );
@@ -54,15 +54,22 @@ export const GameBoard = () => {
     else if (index >= 40) positionClass = 'bottom';
     else positionClass = 'left';
 
+    let used = "";
+    const selected = Math.floor(Math.random()*2);
+    if (selected) {
+        used = "user-has-a-card";
+    }
+
     return (
-        <div className="cell" key={index}>
-          <div className={`marker ${edgeColors[cellNumber]} ${positionClass}`}>
-          </div>
-            <div className={`details ${positionClass}`}>
-                <span className="marker-text">{names[index % names.length]}</span>
-                <div className="infoarea">
-                    <div className="info">${cellNumber * 10}</div>
-                    <div className="info bought">0 mints</div>
+        <div className={`cell ${used} ${edgeColors[cellNumber]}-border hover:shadow-[0_0_3px]`} key={index}>
+          <div className={`marker ${edgeColors[cellNumber]} ${positionClass}`}></div>
+            <div className="w-full h-full">
+                <div className={`details ${positionClass}`}>
+                    <span className="marker-text">{names[index % names.length]}</span>
+                    <div className="infoarea">
+                        <div className="info">${cellNumber * 10}</div>
+                        <div className="info bought">0 mints</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,7 +80,7 @@ export const GameBoard = () => {
 
   return (
       <div className="container">
-        <div className="grid">
+        <div className="grid board">
           {cells}
         </div>
           <div className="geep">
