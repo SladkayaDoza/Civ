@@ -5,9 +5,13 @@ import logo from "../../assets/logo.svg";
 
 export const Footer = () => {
   return (
-    <>
+    <div>
+      <div className="flex h-[35px] justify-between">
+        <div className="left_label"><div>Roll: 30</div></div>
+        <div className="right_label"><div>TAX: 67K</div></div>
+      </div>
       {/* Нижнее меню */}
-      <div className="relative bg-[#7A8C65] h-20 mt-[45px]">
+      <div className="relative bg-[#7A8C65] h-20">
         {/* Фоновая "волна" для центральной кнопки */}
         <img src={futtter} className="absolute left-1/2 h-full -translate-x-1/2  overflow-hidden">
           {/*<img src={futter} height="100%"/>*/}
@@ -48,6 +52,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
