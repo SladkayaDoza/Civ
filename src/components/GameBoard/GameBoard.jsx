@@ -2,6 +2,7 @@ import React from 'react';
 import arrow from "../../assets/arrow.svg";
 
 export const GameBoard = () => {
+
   const edgeColors = {
     2: 'pink', 3: 'pink', 4: 'pink',
     10: 'light-green', 15: 'light-green', 20: 'light-green',
@@ -28,12 +29,19 @@ export const GameBoard = () => {
     const cornerCell = cornerCells[cellNumber];
 
     if (cornerCell) {
-      return (
-          <div className={`cell corner-cell ${cornerCell.class}`} key={index}>
-              <img src={cornerCell.svg} alt="" width="55"/>
-              <div>{cornerCell.text}</div>
-          </div>
-      );
+        const getClass = () => {
+            if (cellNumber === 1) return 'station-top-left';
+            if (cellNumber === 5) return 'station-top-right';
+            if (cellNumber === 41) return 'station-bottom-left';
+            if (cellNumber === 45) return 'station-bottom-right';
+            return '';
+        };
+        return (
+            <div className={`cell corner-cell ${cornerCell.class} ${getClass()}`} key={index}>
+                <img src={cornerCell.svg} alt="" width="55"/>
+                <div>{cornerCell.text}</div>
+            </div>
+        );
     }
 
       if (!edgeColors[cellNumber]) {
@@ -61,7 +69,7 @@ export const GameBoard = () => {
     );
   };
 
-    const cells = Array(45).fill(null).map((_, index) => renderCell(index));
+  const cells = Array(45).fill(null).map((_, index) => renderCell(index));
 
   return (
       <div className="container">
