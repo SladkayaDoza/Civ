@@ -10,7 +10,7 @@ export const Header = () => {
 
   // noinspection JSValidateTypes
   return (
-    <header className="flex justify-center">
+    <header className="flex justify-center mb-[15px] header-text">
       <div className="flex gap-4 mt-10 py-2 px-5 rounded-3xl text-2xl leading-tight" style={{backgroundColor: "var(--color-brand)"}} >
         <img className="" src={logo} alt="" width="15"/>
         <div>1488</div>

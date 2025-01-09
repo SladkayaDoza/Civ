@@ -23,16 +23,20 @@
   --color-corner-cell-text: #8cb764;
   --color-user-cell: #d2e3d2;
   --color-bg-color: #EDF1D6;
+  --default-shadow: 0 0 10px #9DC08B;
 }
 
 .active-user-cell {
   background-color: var(--color-user-cell) !important;
 }
 
+body {
+}
+
 .bg-color {
-  /*background-color: var(--color-bg-color) !important;*/
-  background-image: url('/images/bgg.png');
+  background-image: url("/images/bgg.png");
   background-repeat: repeat;
+  /*background-color: var(--color-bg-color) !important;*/
 }
 
 .user-has-a-card {
@@ -73,13 +77,13 @@
 .board {
   grid-template-areas:
         "square-12 square-13 square-14 square-15 square-16"
-        "square-11 center center center square-17"
-        "square-10 center center center square-18"
+        "square-11 center1 center1 center1 square-17"
+        "square-10 center1 center1 center1 square-18"
         "square-9 center center center square-19"
         "square-8 center center center square-20"
         "square-7 center center center square-21"
-        "square-6 center center center square-22"
-        "square-5 center center center square-23"
+        "square-6 center2 center2 center2 square-22"
+        "square-5 center2 center2 center2 square-23"
         "square-4 square-3 square-2 square-1 square-0";
 }
 
@@ -190,6 +194,99 @@
   grid-area: square-23;
 }
 
+.square-center {
+  grid-area: center;
+  font-size: clamp(16px, 1.8vw, 12px);
+}
+.square-center-area {
+  color: #40513B;
+  /*border: solid #9DC08B;*/
+  border-width: 0 5px 5px 5px;
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #eee;
+  font-size: clamp(10px, 4vw, 16px);
+}
+
+.infoCard {
+  display: flex;
+}
+.infoInfoCard {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+.font-bold {
+  display: flex;
+  align-items: center;
+  font-size: clamp(8px, 4vw, 18px);
+}
+
+.infoInfoCard > span:has(.font-bold) {
+  font-size: clamp(8px, 1.8vw, 11px);
+}
+
+.strokeSVG {
+  width: 1em; /* Высота равна размеру текста */
+  height: 1em;
+}
+
+.cardInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shadow {
+  --tw-shadow: var(--default-shadow);
+  --tw-shadow-colored: var(--default-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.priceCard {
+  color: #eee;
+  /*border-radius: 5px;*/
+  height: 20%;
+  /*background-color: #9DC08B;*/
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 7px 0 7px;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.activityCard {
+  display: flex;
+  background-color: #cfcfcf;
+  border-radius: 3px;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+.activityCard:active {
+  background-color: #B2B2B2;
+}
+
+@media (hover: hover) {
+  ;
+}
+@media (hover: none) {
+  .user-has-a-card:hover {
+    --tw-shadow: none;
+    box-shadow: none;
+  }
+}
+
+.buttonBuy {
+  padding: 2px;
+}
+
 .container {
   max-width: 95vw;
   max-height: 900px;
@@ -219,7 +316,6 @@
   color: #7A8C65;
   border-radius: min(1vw, 6px);
   position: relative;
-  /*padding: 2%;*/
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -252,6 +348,8 @@
   width: 25%;
   border-radius: 0 20px 0 0;
   padding: 0 0 0 15px;
+  font-weight: 500;
+  font-size: clamp(16px, 1.8vw, 12px);
 }
 .right_label {
   display: flex;
@@ -262,6 +360,12 @@
   border-radius: 20px 0 0 0;
   width: 25%;
   padding: 0 15px 0 0;
+  font-weight: 500;
+  font-size: clamp(16px, 1.8vw, 12px);
+}
+
+.header-text {
+  font-weight: 500;
 }
 
 .corner-cell {
@@ -326,10 +430,11 @@
 
 .marker-text {
   font-size: clamp(14px, 1.8vw, 12px);
+  font-weight: 500;
 }
 
 .marker.left .marker-text {
-  transform: rotate(180deg);
+  /*transform: rotate(180deg);*/
 }
 
 .marker.top {
@@ -383,6 +488,7 @@
   /*padding: 2%;*/
   align-content: space-between;
   justify-content: space-between;
+
 }
 
 .details.top {
@@ -417,6 +523,9 @@
 .details.left > .marker-text {
   transform: rotate(-90deg);
   transform-origin: center;
+  display: flex;
+  width: 30%;
+  justify-content: center
 }
 .details.right > .marker-text {
   transform: rotate(90deg);

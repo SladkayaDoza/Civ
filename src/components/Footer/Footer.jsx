@@ -5,9 +5,9 @@ import logo from "../../assets/logo.svg";
 
 export const Footer = () => {
   return (
-    <div>
+    <div className="bg-[#EDF1D6] mt-[15px]">
       <div className="flex h-[35px] justify-between">
-        <div className="left_label"><div>Roll: 30</div></div>
+        <div className="left_label"><div>RENT: 30</div></div>
         <div className="right_label"><div>TAX: 67K</div></div>
       </div>
       {/* Нижнее меню */}
