@@ -34,9 +34,8 @@ body {
 }
 
 .bg-color {
-  background-image: url("/images/bgg.png");
+  background-image: url("/public/images/bgg.png");
   background-repeat: repeat;
-  /*background-color: var(--color-bg-color) !important;*/
 }
 
 .user-has-a-card {
